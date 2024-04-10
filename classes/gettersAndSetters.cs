@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 //********************************************START OF FILE**********************************//
-namespace LukeC_ST10254164_PROG6221_part1
-{
-    internal class Program
-    {/// <summary>
+namespace LukeC_ST10254164_PROG6221_part1.classes
+{/// <summary>
 /// Name: Luke Michael Carolus
 /// StudentID: ST10254164
 /// Module: PROG6221
 /// </summary>
 /// 
-        static void Main(string[] args)
-        {
-            LukeC_ST10254164_PROG6221_part1.classes.infoClass.userInfo();
-        }
+    internal class gettersAndSetters
+    {
+        public string userName { get; set; }
+        public string ingrediant { get; set; }
+        public double volume { get; set; }
     }
 }
 //*************************************END OF FILE***********************************************//
