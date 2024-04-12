@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 //********************************************START OF FILE**********************************//
 namespace LukeC_ST10254164_PROG6221_part1.classes
 {
-    /// <summary>
+ /// <summary>
 /// Name: Luke Michael Carolus
 /// StudentID: ST10254164
 /// Module: PROG6221
@@ -54,9 +56,11 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
            string ingrediant = Console.ReadLine();
             Console.WriteLine("quanity =: " + ingrediant);
 
+            //prompt to ask for the unit of measurement desired by the user
             Console.WriteLine("please enter the unit of measurement you want to use: ");
             string unitOfMeasurment = Console.ReadLine();
             Console.WriteLine("Confirmed! Your unit of measurment is: " + unitOfMeasurment);
+            
             //wait for enter key before closing app
             Console.WriteLine("press enter to quit application");
             Console.ReadLine();

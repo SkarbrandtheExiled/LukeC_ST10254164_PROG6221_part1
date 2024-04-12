@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Xml.Schema;
 //********************************************START OF FILE**********************************//
 namespace LukeC_ST10254164_PROG6221_part1.classes
-{/// <summary>
+{
+    /// <summary>
 /// Name: Luke Michael Carolus
 /// StudentID: ST10254164
 /// Module: PROG6221
