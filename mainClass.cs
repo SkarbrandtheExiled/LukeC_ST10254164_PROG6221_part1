@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 //********************************************START OF FILE**********************************//
 namespace LukeC_ST10254164_PROG6221_part1
 {
-    internal class Program
+    internal class mainClass
     {/// <summary>
 /// Name: Luke Michael Carolus
 /// StudentID: ST10254164
@@ -15,6 +15,7 @@ namespace LukeC_ST10254164_PROG6221_part1
 /// 
         static void Main(string[] args)
         {
+            //calls the requested class to start the application
             LukeC_ST10254164_PROG6221_part1.classes.infoClass.userInfo();
         }
     }

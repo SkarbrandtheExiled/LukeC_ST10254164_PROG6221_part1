@@ -16,7 +16,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
     {
         public string userName { get; set; }
         public string ingrediant { get; set; }
-        public double volume { get; set; }
+        public double unitOfmeasurment { get; set; }
     }
 }
 //*************************************END OF FILE***********************************************//
