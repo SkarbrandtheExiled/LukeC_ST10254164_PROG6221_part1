@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LukeC_ST10254164_PROG6221_part1.classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,13 @@ namespace LukeC_ST10254164_PROG6221_part1
 /// Module: PROG6221
 /// </summary>
 /// 
+
+        //main class that calls the requested class to start the application
         static void Main(string[] args)
         {
-            //main class that calls the requested class to start the application
-            LukeC_ST10254164_PROG6221_part1.classes.infoClass.userInfo();
+            //create an instance of the class that must be used (known as instantiation), then using that instance call the desired method in that class
+            infoClass Users = new infoClass();
+            Users.userInfo();
         }
     }
 }

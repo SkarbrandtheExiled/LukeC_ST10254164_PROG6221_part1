@@ -17,8 +17,9 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 /// 
     internal class infoClass
     {
+        public string userName {  get; set; } //getter and setter for the user's name 
         //------------------------user details methods------------------------//
-        public static void userInfo()
+        public void userInfo()
         {
             //simple console output to ask for the user's name
             Console.WriteLine("please enter your name: ");
@@ -27,7 +28,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
           string userName = Console.ReadLine();
 
             //a simple greeting to start the application (should be used throughout app)
-            Console.WriteLine("welcome " + userName);
+            Console.WriteLine($"welcome {userName}");
         }
    
     }
