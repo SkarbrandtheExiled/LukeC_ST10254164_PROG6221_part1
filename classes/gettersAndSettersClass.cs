@@ -13,11 +13,11 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 /// Module: PROG6221
 /// </summary>
 /// 
-    internal class gettersAndSetters
+    internal class gettersAndSettersClass
     {
         public string userName { get; set; }
         public string ingrediant { get; set; }
-        public double unitOfmeasurment { get; set; }
+        public double unitOfMeasurment { get; set; }
     }
 }
 //*************************************END OF FILE***********************************************//

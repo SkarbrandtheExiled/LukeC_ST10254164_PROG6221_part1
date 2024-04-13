@@ -15,7 +15,7 @@ namespace LukeC_ST10254164_PROG6221_part1
 /// 
         static void Main(string[] args)
         {
-            //calls the requested class to start the application
+            //main class that calls the requested class to start the application
             LukeC_ST10254164_PROG6221_part1.classes.infoClass.userInfo();
         }
     }

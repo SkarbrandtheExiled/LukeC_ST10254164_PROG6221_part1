@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\arraysClass.cs" />
     <Compile Include="classes\infoClass.cs" />
-    <Compile Include="classes\gettersAndSetters.cs" />
+    <Compile Include="classes\gettersAndSettersClass.cs" />
+    <Compile Include="classes\ingredientClass.cs" />
+    <Compile Include="classes\quantityClass.cs" />
     <Compile Include="mainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
