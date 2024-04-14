@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,8 +30,10 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 
             //a simple greeting to start the application (should be used throughout app)
             Console.WriteLine($"welcome {userName}");
+
+            ingredientClass recipe = new ingredientClass();
+            recipe.ingredients();
         }
-   
     }
 }
 //*************************************END OF FILE***********************************************//
