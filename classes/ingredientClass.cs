@@ -43,6 +43,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 Console.WriteLine($"Enter step {i + 1}: ");
                 steps.Add(Console.ReadLine());
             }
+            displayRecipe();
         }
         public void displayRecipe()
         {
@@ -57,9 +58,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             Console.WriteLine("Steps:");
             for (int i = 0; i < steps.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {steps[i]}");
-
-                Console.ReadLine();
+                Console.WriteLine($"{i + 1} {steps[i]}");
             }
         }
     }
