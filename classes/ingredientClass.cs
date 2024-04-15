@@ -16,8 +16,10 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         //---------------------------Ingrediants method----------------------------//
         public void ingredients()
         {
-            Console.WriteLine("Please enter the number of ingredients: ");
-            int numIngredients = int.Parse( Console.ReadLine() ); //must fix this to have error handling
+            //prompt asking for the number of ingredients in the recipe
+            Console.WriteLine("Please enter the number of ingredients in the recipe: ");
+            //must fix this to have error handling
+            int numIngredients = int.Parse( Console.ReadLine() ); 
 
             ingredientNames = new string[numIngredients];
             ingredientQuantities = new double[numIngredients];
@@ -25,20 +27,23 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 
             for (int i = 0; i < numIngredients; i++)
             {
-                Console.WriteLine($"Please enter the name of ingredient {i + 1}: ");
+                //prompt asks for the name of the ingredient and adds it to the 'ingedientNames' array
+                Console.WriteLine($"Please enter the name of ingredient {i + 1}: "); 
                 ingredientNames[i] = Console.ReadLine();
 
-                if (!string.IsNullOrWhiteSpace(ingredientNames[i]))
+                //if statment contaning a try-catch that manages exception handling
+                if (!string.IsNullOrWhiteSpace(ingredientNames[i])) 
                 {
                     Console.WriteLine($"Please enter the quantity of {ingredientNames[i]}: ");
 
+                    //a try-cacth that checks if the value inputed matches the required data types
                     try
                     {
-                        ingredientQuantities[i] = double.Parse(Console.ReadLine());
+                        ingredientQuantities[i] = double.Parse(Console.ReadLine()); 
                     }
                     catch (FormatException)
                     {
-                        Console.WriteLine("Invalid input. Please enter a valid number for the quantity.");
+                        Console.WriteLine("Please enter a valid number for the quantity");
                         i--; // Decrement i to repeat the same index
                         continue;
                     }
@@ -48,7 +53,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid name for the ingredient.");
+                    Console.WriteLine("Please enter a valid name for the ingredient");
                     i--; // Decrement i to repeat the same index
                 }
             }
@@ -64,27 +69,33 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             }
             displayRecipe();
         }
-//----------------------------displayRecipe method----------------------------------//
-        public void displayRecipe()
+        //----------------------------displayRecipe method----------------------------------//
+        //this method must prompt the user for the ingredient's name, quantitiy, and unit of measurement
+        public void displayRecipe() 
         {
-            Console.WriteLine("\nfull recipe:");
+            Console.WriteLine("\nFull recipe: ");
+            Console.WriteLine("----------------------------");
 
-            Console.WriteLine("Ingredients:");
+            Console.WriteLine("\nIngredients: ");
             for (int i = 0; i < ingredientNames.Length; i++)
             {
                 Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]}");
             }
-
-            Console.WriteLine("\nSteps:");
+            Console.WriteLine("------------------------");
+            Console.WriteLine("\nSteps: ");
             for (int i = 0; i < steps.Count; i++)
             {
                 Console.WriteLine($"{i + 1}: {steps[i]}");
+               
             }
-            Console.WriteLine("press 'enter' to quite application");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Press 'enter' to quite application");
             Console.ReadLine();
         }
+
         //--------------------deleteData method---------------------------//
-        public void deleteData() //method must delete the data inputted by the user and loop the application back to the start
+        //method must delete the data inputted by the user and loop the application back to the start
+        public void deleteData() 
         {
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LukeC_ST10254164_PROG6221_part1.classes
 {
-    internal class quantityClass
+    internal class quantityScaleClass
     {
         public string ingredient {  get; set; }
         public string unitOfMeasurment { get; set; }
