@@ -11,9 +11,11 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         public string ingredient {  get; set; }
         public string unitOfMeasurment { get; set; }
         //----------------------------Quantity method----------------------------//
-        public void quantity(double value) //method to scale the quantities given by the user if the user wants to 
-        { 
-                Value = value;
+        //method to scale the quantities given by the user if the user wants to
+        public void quantityScaling(double value)
+        {
+            Console.WriteLine("please enter a value to indicate how much the recipe must be scaled: ");
+                
             }
 
         public double Value { get; set; }

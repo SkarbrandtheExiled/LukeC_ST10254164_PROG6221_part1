@@ -9,10 +9,15 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
     internal class ingredientClass
     {
         //-------initalisation of arrays that will be used to store user data------//
-        private string[] ingredientNames; //an array that must store the names of the ingredients (with the data type string)
-        private double[] ingredientQuantities; //an array that stores the quantity/ number of those ingredients (data type is double to ensure users can include fractions)
-        private string[] unitOfMeasurements; // an array that stores the unit of measurments for the ingredients (data type is a string because some recipes don't use numbers to indicate measurements)
-        private List<string> steps;
+
+        //an array that must store the names of the ingredients (with the data type string)
+        public string[] ingredientNames;
+        //an array that stores the quantity/ number of those ingredients (data type is double to ensure users can include fractions)
+        public double[] ingredientQuantities;
+        // an array that stores the unit of measurments for the ingredients (data type is a string because some recipes don't use numbers to indicate measurements)
+        public string[] unitOfMeasurements; 
+        //a list that stores input from the user to be used when formatting the input
+        public List<string> steps;
         //---------------------------Ingrediants method----------------------------//
         public void ingredients()
         {
@@ -27,11 +32,11 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 
             for (int i = 0; i < numIngredients; i++)
             {
-                //prompt asks for the name of the ingredient and adds it to the 'ingedientNames' array
+                //prompt asks for the name of the ingredient and adds it to the 'ingredientNames' array
                 Console.WriteLine($"Please enter the name of ingredient {i + 1}: "); 
                 ingredientNames[i] = Console.ReadLine();
 
-                //if statment contaning a try-catch that manages exception handling
+                //if statement contaning a try-catch that manages exception handling
                 if (!string.IsNullOrWhiteSpace(ingredientNames[i])) 
                 {
                     Console.WriteLine($"Please enter the quantity of {ingredientNames[i]}: ");
@@ -44,7 +49,8 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                     catch (FormatException)
                     {
                         Console.WriteLine("Please enter a valid number for the quantity");
-                        i--; // Decrement i to repeat the same index
+                        // Decrements i to repeat the same index
+                        i--; 
                         continue;
                     }
 
@@ -54,7 +60,8 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 else
                 {
                     Console.WriteLine("Please enter a valid name for the ingredient");
-                    i--; // Decrement i to repeat the same index
+                    // Decrements i to repeat the same index
+                    i--; 
                 }
             }
 
@@ -67,6 +74,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 Console.WriteLine($"Please enter step {i + 1}: ");
                 steps.Add(Console.ReadLine());
             }
+            //calls the displayRecipe method to show the full recipe
             displayRecipe();
         }
         //----------------------------displayRecipe method----------------------------------//
@@ -76,6 +84,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             Console.WriteLine("\nFull recipe: ");
             Console.WriteLine("----------------------------");
 
+            //loops through the arrays to display all the information in the desired format
             Console.WriteLine("\nIngredients: ");
             for (int i = 0; i < ingredientNames.Length; i++)
             {
@@ -85,10 +94,13 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             Console.WriteLine("\nSteps: ");
             for (int i = 0; i < steps.Count; i++)
             {
+                //displays the steps in the order given by the user
                 Console.WriteLine($"{i + 1}: {steps[i]}");
-               
             }
             Console.WriteLine("---------------------------");
+
+
+            //a quite function that allows the user to see the application before they close it and lose all stored information
             Console.WriteLine("Press 'enter' to quite application");
             Console.ReadLine();
         }
@@ -97,7 +109,14 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         //method must delete the data inputted by the user and loop the application back to the start
         public void deleteData() 
         {
+            //sets all the variables that use user input to null
+ingredientNames = null;
+            ingredientQuantities = null;
+                unitOfMeasurements = null;
+            steps = null;
 
+            //re-calls the method to make the user start from scratch
+            ingredients(); 
         }
     }
 }
