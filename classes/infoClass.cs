@@ -31,8 +31,9 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             //a simple greeting to start the application (should be used throughout app)
             Console.WriteLine($"welcome {userName}");
 
-            ingredientClass recipe = new ingredientClass();
-            recipe.ingredients();
+            menuClass menu = new menuClass();
+            menu.recipeMenu();
+            
         }
     }
 }

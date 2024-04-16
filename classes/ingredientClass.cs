@@ -86,6 +86,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 
             //loops through the arrays to display all the information in the desired format
             Console.WriteLine("\nIngredients: ");
+            //add exception handler here
             for (int i = 0; i < ingredientNames.Length; i++)
             {
                 Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]}");
@@ -101,7 +102,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 
 
             //a quite function that allows the user to see the application before they close it and lose all stored information
-            Console.WriteLine("Press 'enter' to quite application");
+            Console.WriteLine("Press 'enter' to return to menu");
             Console.ReadLine();
         }
 
@@ -117,6 +118,38 @@ ingredientNames = null;
 
             //re-calls the method to make the user start from scratch
             ingredients(); 
+        }
+        //------------------------quantityScaling method-------------------//
+        public void quantityScaling()
+        {
+            Console.WriteLine("please enter a value to indicate how much the recipe must be scaled: ");
+            double scalingNum = double.Parse(Console.ReadLine());
+
+            for (int i = 0; i < ingredientQuantities.Length; i++)
+            {
+                ingredientQuantities[i] *= scalingNum;
+            }
+
+            Console.WriteLine("\nScaled Recipe:");
+        }
+        //---------------------displayScaling---------------------//
+        public void displayScaling()
+        {
+            Console.WriteLine("\nfull Recipe: ");
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("\nIngredients: ");
+            for (int i = 0; i < ingredientNames.Length; i++)
+            {
+                Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]}");
+            }
+            Console.WriteLine("------------------------");
+            Console.WriteLine("\nSteps: ");
+            for (int i = 0; i < steps.Count; i++)
+            {
+                //displays the steps in the order given by the user
+                Console.WriteLine($"{i + 1}: {steps[i]}");
+            }
+            Console.WriteLine("---------------------------");
         }
     }
 }
