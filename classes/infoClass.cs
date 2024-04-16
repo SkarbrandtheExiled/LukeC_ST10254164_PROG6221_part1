@@ -1,7 +1,5 @@
 ﻿/// <summary>
-/// Name: Luke Michael Carolus
-/// StudentID: ST10254164
-/// Module: PROG6221
+/// 
 /// </summary>
 /// 
 
@@ -32,6 +30,10 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
 
             //an input stream that can be read from
           string userName = Console.ReadLine();
+            if(userName == null)
+            {
+                Console.WriteLine("enter your name, please");
+            }
 
             //a simple greeting to start the application (should be used throughout app)
             Console.WriteLine($"welcome {userName}");

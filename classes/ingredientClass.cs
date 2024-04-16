@@ -1,13 +1,14 @@
 ﻿/// <summary>
-/// Name: Luke Michael Carolus
-/// StudentID: ST10254164
-/// Module: PROG6221
+/// contains methods that handle infromation relevant to the recipe
+/// contain sthe arrays that will hold the name, quantities, and unit of measurements
+/// 
 /// </summary>
 /// 
 
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         public double[] ingredientQuantities;
         // an array that stores the unit of measurments for the ingredients (data type is a string because some recipes don't use numbers to indicate measurements)
         public string[] unitOfMeasurements; 
-        //a list that stores input from the user to be used when formatting the input, the list will be equal to the size of the number of steps
+        //a list that stores input from the user to be used when formatting the input, the list will be equal to the size of the number of steps. useful for storing sentences
         public List<string> steps;
         //---------------------------Ingrediants method----------------------------//
         //this method is responsible for handling all data relevant to the ingredients of the recipe
@@ -93,24 +94,45 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         }
         //----------------------------displayRecipe method----------------------------------//
         //this method must prompt the user for the ingredient's name, quantitiy, and unit of measurement
-        public void displayRecipe() 
+        public void displayRecipe()
         {
             Console.WriteLine("\nFull recipe: ");
             Console.WriteLine("----------------------------");
-
-            //loops through the arrays to display all the information in the desired format
-            Console.WriteLine("\nIngredients: ");
-            //add exception handler here
-            for (int i = 0; i < ingredientNames.Length; i++)
+            //checks if there is any data to display 
+            if (ingredientNames == null || ingredientQuantities == null || unitOfMeasurements == null)
             {
-                Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]}");
+                // Inform the user there are no ingredients
+                Console.WriteLine("No ingredients provided.");
+               
+            }
+            else
+            {
+                Console.WriteLine("\nIngredients: ");
+                // Loop through the arrays to display all the information in the desired format
+                for (int i = 0; i < ingredientNames.Length; i++)
+                {
+                    // Check if ingredient name exists
+                    if (ingredientNames[i] != null)
+                    {
+                        Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]}");
+                    }
+                }
             }
             Console.WriteLine("------------------------");
             Console.WriteLine("\nSteps: ");
-            for (int i = 0; i < steps.Count; i++)
+
+            for (int i = 0; i < steps?.Count; i++)
             {
-                //displays the steps in the order given by the user
-                Console.WriteLine($"{i + 1}: {steps[i]}");
+                //checks if steps exists
+                if (steps[i] != null)
+                {
+                    //displays the steps in the order given by the user
+                    Console.WriteLine($"{i + 1}: {steps[i]}");
+                }
+                else
+                {
+                    Console.WriteLine("no steps tp display");
+                }
             }
             Console.WriteLine("---------------------------");
 
@@ -124,21 +146,41 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         //method must delete the data inputted by the user and loop the application back to the start
         public void deleteData() 
         {
-            //sets all the variables that use user input to null
-ingredientNames = null;
-            ingredientQuantities = null;
-                unitOfMeasurements = null;
-            steps = null;
+            Console.WriteLine("Are you sure you want to delete all your data?");
+                Console.WriteLine("1. Yes");
+                Console.WriteLine("2. No");
+                Console.WriteLine("Enter your choice: ");
+            int decision = int.Parse(Console.ReadLine());
+            //add exception handling
+            { 
+                switch (decision)
+                {
+                    case 1:
+                        //sets all the variables that use user input to null
+                        ingredientNames = null;
+                        ingredientQuantities = null;
+                        unitOfMeasurements = null;
+                        steps = null;
+                        Console.WriteLine("data deleted!");
+                        break;
+                        //does nothing to the data and just sends them back to the menu
+                        case 2: displayRecipe();
+                        Console.WriteLine("data still present");
+                        break;
 
-            //re-calls the method to make the user start from scratch
-            ingredients(); 
+                    default: 
+                        Console.WriteLine("please enter a valid input");
+                        break;
+                }
+            }
         }
         //------------------------quantityScaling method-------------------//
         //responsible for scaling the user input 
         public void quantityScaling()
         {
+            
             Console.WriteLine("please enter a value to indicate how much the recipe must be scaled: ");
-            //add exception handler here
+            //user inputs a value (e.g 1,2, 5) and multiplies that number by the value given for ingredientQuantities
             double scalingNum = double.Parse(Console.ReadLine());
 
             for (int i = 0; i < ingredientQuantities.Length; i++)
@@ -155,13 +197,15 @@ ingredientNames = null;
             Console.WriteLine("\nIngredients: ");
             for (int i = 0; i < ingredientNames.Length; i++)
             {
+                //a prompt that displays a message containg the value for the new quantities
                 Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]}");
             }
             Console.WriteLine("------------------------");
             Console.WriteLine("\nSteps: ");
+            //loops through the steps list
             for (int i = 0; i < steps.Count; i++)
             {
-                //displays the steps in the order given by the user
+                //displays the steps in the order writen by the user
                 Console.WriteLine($"{i + 1}: {steps[i]}");
             }
             Console.WriteLine("---------------------------");
