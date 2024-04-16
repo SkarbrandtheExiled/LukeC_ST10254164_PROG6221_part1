@@ -1,4 +1,11 @@
-﻿using System;
+﻿/// <summary>
+/// Name: Luke Michael Carolus
+/// StudentID: ST10254164
+/// Module: PROG6221
+/// </summary>
+/// 
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +13,11 @@ using System.Threading.Tasks;
 
 namespace LukeC_ST10254164_PROG6221_part1.classes
 {
+    //********************************************START OF FILE**********************************//
     internal class menuClass
     {
+        //------------------recipeMenu-----------------------//
+        //creates a menu that allows the users to pick what they want to see/ do
         public void recipeMenu()
         {
             ingredientClass recipeManager = new ingredientClass();
@@ -53,3 +63,4 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         }
     }
 }
+//*************************************END OF FILE***********************************************//

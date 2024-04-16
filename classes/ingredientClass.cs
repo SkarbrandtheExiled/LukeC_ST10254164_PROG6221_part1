@@ -1,4 +1,12 @@
-﻿using System;
+﻿/// <summary>
+/// Name: Luke Michael Carolus
+/// StudentID: ST10254164
+/// Module: PROG6221
+/// </summary>
+/// 
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +14,10 @@ using System.Threading.Tasks;
 
 namespace LukeC_ST10254164_PROG6221_part1.classes
 {
+    //********************************************START OF FILE**********************************//
     internal class ingredientClass
     {
-        //-------initalisation of arrays that will be used to store user data------//
+        //-------creation and declaration of fields that will be used to store user data-------//
 
         //an array that must store the names of the ingredients (with the data type string)
         public string[] ingredientNames;
@@ -16,16 +25,18 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         public double[] ingredientQuantities;
         // an array that stores the unit of measurments for the ingredients (data type is a string because some recipes don't use numbers to indicate measurements)
         public string[] unitOfMeasurements; 
-        //a list that stores input from the user to be used when formatting the input
+        //a list that stores input from the user to be used when formatting the input, the list will be equal to the size of the number of steps
         public List<string> steps;
         //---------------------------Ingrediants method----------------------------//
+        //this method is responsible for handling all data relevant to the ingredients of the recipe
         public void ingredients()
         {
             //prompt asking for the number of ingredients in the recipe
             Console.WriteLine("Please enter the number of ingredients in the recipe: ");
             //must fix this to have error handling
-            int numIngredients = int.Parse( Console.ReadLine() ); 
+            int numIngredients = int.Parse( Console.ReadLine() );
 
+            //responsible for creating and initialising arrays to store the ingredient names, quantities, and units of measurement for the recipe
             ingredientNames = new string[numIngredients];
             ingredientQuantities = new double[numIngredients];
             unitOfMeasurements = new string[numIngredients];
@@ -36,7 +47,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 Console.WriteLine($"Please enter the name of ingredient {i + 1}: "); 
                 ingredientNames[i] = Console.ReadLine();
 
-                //if statement contaning a try-catch that manages exception handling
+                //if statement contaning a try-catch that manages exception handling in the event that the usesr inputs nothing
                 if (!string.IsNullOrWhiteSpace(ingredientNames[i])) 
                 {
                     Console.WriteLine($"Please enter the quantity of {ingredientNames[i]}: ");
@@ -68,7 +79,10 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             Console.WriteLine("Please enter the number of steps: ");
             int numSteps = int.Parse( Console.ReadLine());
 
+            //a storage container for lists of strings. the numSteps in brackets sets the size of the list meaning the storage will always be equal to the numer set by the user
             steps = new List<string>(numSteps);
+
+            //iterates through each step and prompts the user for input
             for (int i = 0; i < numSteps; i++)
             {
                 Console.WriteLine($"Please enter step {i + 1}: ");
@@ -120,22 +134,23 @@ ingredientNames = null;
             ingredients(); 
         }
         //------------------------quantityScaling method-------------------//
+        //responsible for scaling the user input 
         public void quantityScaling()
         {
             Console.WriteLine("please enter a value to indicate how much the recipe must be scaled: ");
+            //add exception handler here
             double scalingNum = double.Parse(Console.ReadLine());
 
             for (int i = 0; i < ingredientQuantities.Length; i++)
             {
-                ingredientQuantities[i] *= scalingNum;
+        ingredientQuantities[i] *= scalingNum;
             }
-
-            Console.WriteLine("\nScaled Recipe:");
         }
         //---------------------displayScaling---------------------//
+        //displays the new values after scaling them
         public void displayScaling()
         {
-            Console.WriteLine("\nfull Recipe: ");
+            Console.WriteLine("\nScaled Recipe:");
             Console.WriteLine("-----------------------");
             Console.WriteLine("\nIngredients: ");
             for (int i = 0; i < ingredientNames.Length; i++)
@@ -153,3 +168,4 @@ ingredientNames = null;
         }
     }
 }
+//*************************************END OF FILE***********************************************//
