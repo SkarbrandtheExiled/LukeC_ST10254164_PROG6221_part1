@@ -18,18 +18,19 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         //creates a menu that allows the users to pick what they want to see/ do
         public void recipeMenu()
         {
+            recipeChoiceClass recipeOption = new recipeChoiceClass();
             //creates an instance of the ingredientClass so that methods from it can be used in other classes
             ingredientClass recipeManager = new ingredientClass();
             bool Run = true;
             //neeed exception handler
             while (Run)
             {
-                Console.WriteLine("Welcome to the Recipe App!");
-                Console.WriteLine("1. Enter recipe details");
-                Console.WriteLine("2. Display recipe");
-                Console.WriteLine("3. Scale ingredients");
-                Console.WriteLine("4. Delete recipe");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("1. Select recipe");
+                Console.WriteLine("2. Add new recipe");
+                Console.WriteLine("3. Display recipe");
+                Console.WriteLine("4. Scale ingredients");
+                Console.WriteLine("5. Delete recipe");
+                Console.WriteLine("6. Exit");
 
                 Console.WriteLine("Enter your choice: ");
 
@@ -40,18 +41,21 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 {
                     //calls a method from the ingredient class
                     case 1:
-                        recipeManager.ingredients();
+                        recipeOption.recipeChoice();
                         break;
                     case 2:
-                        recipeManager.displayRecipe();
+                        recipeManager.ingredients();
                         break;
                     case 3:
-                        recipeManager.quantityScaling();
+                        recipeManager.displayRecipe();
                         break;
                     case 4:
-                        recipeManager.deleteData();
+                        recipeManager.quantityScaling();
                         break;
                     case 5:
+                        recipeManager.deleteData();
+                        break;
+                    case 6:
                         Run = false;
                         break;
                     default:

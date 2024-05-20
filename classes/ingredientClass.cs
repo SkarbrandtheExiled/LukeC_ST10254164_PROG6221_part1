@@ -28,10 +28,21 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         public string[] unitOfMeasurements; 
         //a list that stores input from the user to be used when formatting the input, the list will be equal to the size of the number of steps. useful for storing sentences
         public List<string> steps;
+        //a list that stores the different recipes
+        public List<string> recipeNames = new List<string>();
+
         //---------------------------Ingrediants method----------------------------//
         //this method is responsible for handling all data relevant to the ingredients of the recipe
         public void ingredients()
         {
+            recipeNames = new List<string>();
+            //------------------START OF CHANGES-------------------//
+            Console.WriteLine("please enter the name of the recipe: ");
+            string recipeName = Console.ReadLine();
+            recipeNames.Add(recipeName); //prevents the code from running 
+            Console.WriteLine($"recipe {recipeName} has been added");
+            //------------------END OF CHANGES---------------------//
+
             //prompt asking for the number of ingredients in the recipe
             Console.WriteLine("Please enter the number of ingredients in the recipe: ");
             //must fix this to have error handling
@@ -113,7 +124,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 {
                     // Check if ingredient name exists
                     if (ingredientNames[i] != null)
-                    {
+                    { 
                         Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]}");
                     }
                 }
@@ -131,12 +142,10 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 }
                 else
                 {
-                    Console.WriteLine("no steps tp display");
+                    Console.WriteLine("no steps to display");
                 }
             }
             Console.WriteLine("---------------------------");
-
-
             //a quite function that allows the user to see the application before they close it and lose all stored information
             Console.WriteLine("Press 'enter' to return to menu");
             Console.ReadLine();
@@ -177,8 +186,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         //------------------------quantityScaling method-------------------//
         //responsible for scaling the user input 
         public void quantityScaling()
-        {
-            
+        {   
             Console.WriteLine("please enter a value to indicate how much the recipe must be scaled: ");
             //user inputs a value (e.g 1,2, 5) and multiplies that number by the value given for ingredientQuantities
             double scalingNum = double.Parse(Console.ReadLine());
@@ -209,6 +217,18 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 Console.WriteLine($"{i + 1}: {steps[i]}");
             }
             Console.WriteLine("---------------------------");
+        }
+        //responsible for displaying a prompt and showing the new added recipe names
+        public void addRecipe()
+        {
+            Console.WriteLine("please enter the name of the recipe: ");
+            string recipeName = Console.ReadLine();
+            recipeNames.Add(recipeName); //prevents the code from running 
+            Console.WriteLine($"recipe {recipeNames} has been added");
+        }
+        public List<string> RecipeNames
+        {
+            get { return recipeNames; }
         }
     }
 }
