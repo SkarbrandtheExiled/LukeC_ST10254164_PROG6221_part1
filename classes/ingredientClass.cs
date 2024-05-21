@@ -33,15 +33,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         //---------------------------Ingrediants method----------------------------//
         //this method is responsible for handling all data relevant to the ingredients of the recipe
         public void ingredients()
-        {
-            recipeNames = new List<string>();
-            //------------------START OF CHANGES-------------------//
-            Console.WriteLine("please enter the name of the recipe: ");
-            string recipeName = Console.ReadLine();
-            recipeNames.Add(recipeName); //prevents the code from running 
-            Console.WriteLine($"recipe {recipeName} has been added");
-            //------------------END OF CHANGES---------------------//
-
+        { 
             //prompt asking for the number of ingredients in the recipe
             Console.WriteLine("Please enter the number of ingredients in the recipe: ");
             //must fix this to have error handling
@@ -85,6 +77,17 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                     // Decrements i to repeat the same index
                     i--; 
                 }
+
+                //------------START OF CHANGES---------------//
+                //responsible for asking for the calorie count of the ingredients
+                //shoud probably be a serperate method
+                Console.WriteLine("please enter the number of calories in the ingredient");
+                calorieCount = Console.ReadLine();
+                //-----------END OF CHNAGES---------------//
+
+                //------------START OF CHANGES------------//
+                Console.WriteLine("please enter the food group of the ingredient");
+                foodGroup = Console.ReadLine();
             }
 
             Console.WriteLine("Please enter the number of steps: ");
@@ -102,6 +105,8 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             //calls the displayRecipe method to show the full recipe
             displayRecipe();
         }
+
+
         //----------------------------displayRecipe method----------------------------------//
         //this method must prompt the user for the ingredient's name, quantitiy, and unit of measurement
         public void displayRecipe()
@@ -150,6 +155,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             Console.ReadLine();
         }
 
+
         //--------------------deleteData method---------------------------//
         //method must delete the data inputted by the user and loop the application back to the start
         public void deleteData() 
@@ -182,6 +188,8 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                 }
             }
         }
+
+
         //------------------------quantityScaling method-------------------//
         //responsible for scaling the user input 
         public void quantityScaling()
@@ -195,6 +203,8 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
         ingredientQuantities[i] *= scalingNum;
             }
         }
+
+
         //---------------------displayScaling---------------------//
         //displays the new values after scaling them
         public void displayScaling()
@@ -217,6 +227,9 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             }
             Console.WriteLine("---------------------------");
         }
+
+
+        //------------------addRecipe------------------------------//
         //responsible for displaying a prompt and showing the new added recipe names
         public void addRecipe() //add recipe method does not add to the array!!NB
         {
@@ -224,6 +237,17 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             string recipeName = Console.ReadLine();
             recipeNames.Add(recipeName); //prevents the code from running 
             Console.WriteLine($"recipe {recipeNames} has been added");
+        }
+        public void totalCalories()
+        {
+            if (calorieCount > 300)
+                Console.WriteLine("number of calories has exceeded the maximum limit of calories");
+            //add a audio file that tells them their fat!
+            else
+            {
+                Console.WriteLine("total calories: ");
+                Console.WriteLine(calorieCount);
+            }
         }
         public List<string> RecipeNames
         {
