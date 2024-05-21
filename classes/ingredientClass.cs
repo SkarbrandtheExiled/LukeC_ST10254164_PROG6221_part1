@@ -19,7 +19,6 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
     internal class ingredientClass
     {
         //-------creation and declaration of fields that will be used to store user data-------//
-
         //an array that must store the names of the ingredients (with the data type string)
         public string[] ingredientNames;
         //an array that stores the quantity/ number of those ingredients (data type is double to ensure users can include fractions)
@@ -219,7 +218,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             Console.WriteLine("---------------------------");
         }
         //responsible for displaying a prompt and showing the new added recipe names
-        public void addRecipe()
+        public void addRecipe() //add recipe method does not add to the array!!NB
         {
             Console.WriteLine("please enter the name of the recipe: ");
             string recipeName = Console.ReadLine();

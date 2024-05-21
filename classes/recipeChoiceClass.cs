@@ -15,7 +15,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             ingredientClass ingredients = new ingredientClass();
 
             Console.WriteLine("please choose which recipe you want to view:");
-            if (ingredients.recipeNames.Count == 0) //error
+            if (ingredients.recipeNames.Count == 0) //error the recipe number is always 0!!
             {
                 Console.WriteLine("No recipes to display");
             }
