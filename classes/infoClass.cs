@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 //********************************************START OF FILE**********************************//
-namespace LukeC_ST10254164_PROG6221_part1.classes
+namespace LukeC_ST10254164_PROG6221_part2.classes
 {
  /// <summary>
 /// Name: Luke Michael Carolus

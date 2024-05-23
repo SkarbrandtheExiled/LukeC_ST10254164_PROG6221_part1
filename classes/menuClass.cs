@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LukeC_ST10254164_PROG6221_part1.classes
+namespace LukeC_ST10254164_PROG6221_part2.classes
 {
     //********************************************START OF FILE**********************************//
     internal class menuClass
@@ -21,6 +21,10 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             recipeChoiceClass recipeOption = new recipeChoiceClass();
             //creates an instance of the ingredientClass so that methods from it can be used in other classes
             ingredientClass recipeManager = new ingredientClass();
+
+            deleteRecipeClass deleteRecipe = new deleteRecipeClass();
+
+            displayRecipeClass showRecipe = new displayRecipeClass();
             bool Run = true;
             //neeed exception handler
             while (Run)
@@ -47,13 +51,13 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
                         recipeManager.ingredients();
                         break;
                     case 3:
-                        recipeManager.displayRecipe();
+                        showRecipe.displayRecipe();
                         break;
                     case 4:
                         recipeManager.quantityScaling();
                         break;
                     case 5:
-                        recipeManager.deleteData();
+                        deleteRecipe.deleteData();
                         break;
                     case 6:
                         Run = false;
