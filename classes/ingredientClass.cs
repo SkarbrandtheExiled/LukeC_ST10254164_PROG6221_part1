@@ -91,12 +91,12 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                 //responsible for asking for the calorie count of the ingredients
                 //shoud probably be a seperate method
                 Console.WriteLine($"please enter the number of calories for {ingredientNames[i]}: ");
-                double calorieCount[i] = double.Parse(Console.ReadLine());
+                calorieCount[i] = double.Parse(Console.ReadLine());
                 //-----------END OF CHNAGES---------------//
 
                 //------------START OF CHANGES------------//
                 Console.WriteLine($"please enter the food group for {ingredientNames[i]}: ");
-                string foodGroup[i] = Console.ReadLine();
+                foodGroup[i] = Console.ReadLine();
 
                 //responsibe for getting the food group
                 //----------END OF CHANGES---------------//

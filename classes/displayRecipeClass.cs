@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
     {
         ingredientClass displayIngredients = new ingredientClass();
 
-        
+        //this class is not functioning 
         //----------------------------displayRecipe method----------------------------------//
         //this method must prompt the user for the ingredient's name, quantitiy, and unit of measurement
         public void displayRecipe()
@@ -33,7 +34,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                     // Check if ingredient name exists
                     if (displayIngredients.ingredientNames[i] != null)
                     {
-                        Console.WriteLine($"{displayIngredients.ingredientQuantities[i]} {displayIngredients.unitOfMeasurements[i]} of {displayIngredients.ingredientNames[i]}");
+                        Console.WriteLine($"{displayIngredients.ingredientQuantities[i]} {displayIngredients.unitOfMeasurements[i]} of {displayIngredients.ingredientNames[i]} (number of calories: {displayIngredients.calorieCount}/n food group: {displayIngredients.foodGroup})");
                     }
                 }
             }

@@ -22,9 +22,9 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             }
             else
             {
-                for (int i = 0; i < fetchNames.RecipeNames.Count; i++)
+                for (int i = 0; i < fetchNames.recipeNames.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. {fetchNames.RecipeNames[i]}");
+                    Console.WriteLine($"{i + 1}. {fetchNames.recipeNames[i]}");
                 }
                 //must display a menu showing all the recipes that have already been made
             }
@@ -32,9 +32,9 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             Console.Write("Enter the number of the recipe to display: ");
             int recipeIndex;
             //change the code below to something that is easier to understand and works
-            if (int.TryParse(Console.ReadLine(), out recipeIndex) && recipeIndex >= 1 && recipeIndex <= fetchNames.RecipeNames.Count)
+            if (int.TryParse(Console.ReadLine(), out recipeIndex) && recipeIndex >= 1 && recipeIndex <= fetchNames.recipeNames.Count)
             {
-                string selectedRecipeName = fetchNames.RecipeNames[recipeIndex - 1];
+                string selectedRecipeName = fetchNames.recipeNames[recipeIndex - 1];
                 Console.WriteLine($"\nSelected Recipe: {selectedRecipeName}");
                 // Call the displayRecipe method from the ingredientClass to display the recipe details
                 recipeDecision.displayRecipe();
