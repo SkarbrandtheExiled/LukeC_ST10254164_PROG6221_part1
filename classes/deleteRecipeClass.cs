@@ -33,8 +33,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                         break;
                     //does nothing to the data and just sends them back to the menu
                     case 2:
-                        displayRecipeClass recipeList = new displayRecipeClass();
-                        recipeList.displayRecipe();
+                        ingredients.displayRecipe();
                         Console.WriteLine("data still present");
                         break;
 

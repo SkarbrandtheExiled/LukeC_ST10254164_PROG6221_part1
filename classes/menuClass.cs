@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,6 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
 
             deleteRecipeClass deleteRecipe = new deleteRecipeClass();
 
-            displayRecipeClass showRecipe = new displayRecipeClass();
             bool Run = true;
             //neeed exception handler
             while (Run)
@@ -51,7 +51,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                         recipeManager.ingredients();
                         break;
                     case 3:
-                        showRecipe.displayRecipe();
+                        recipeManager.displayRecipe();
                         break;
                     case 4:
                         recipeManager.quantityScaling();
@@ -66,7 +66,6 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                         Console.WriteLine("Please enter a valid option");
                         break;
                 }
-               
                 Console.WriteLine();
             }
         }

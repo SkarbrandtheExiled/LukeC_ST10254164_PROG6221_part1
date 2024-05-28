@@ -12,7 +12,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
         //this method is not functioning yet
         public void recipeChoice()
         {
-            displayRecipeClass recipeDecision = new displayRecipeClass();
+            ingredientClass recipeDecision = new ingredientClass();
             ingredientClass fetchNames = new ingredientClass();
 
             Console.WriteLine("please choose which recipe you want to view:");
