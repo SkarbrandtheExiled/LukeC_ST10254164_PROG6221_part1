@@ -36,7 +36,9 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             }
 
             //a simple greeting to start the application (should be used throughout app)
-            Console.WriteLine($"welcome {userName} to the recipe app");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"welcome {userName} to the recipe app");
+            Console.ForegroundColor = ConsoleColor.White;
 
             menuClass menu = new menuClass();
             menu.recipeMenu();

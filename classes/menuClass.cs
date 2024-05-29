@@ -3,6 +3,7 @@
 ///contains instantiation to access the ingedientClass
 ///
 
+using LukeC_ST10254164_PROG6221_part1.classes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -22,6 +23,8 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             recipeChoiceClass recipeOption = new recipeChoiceClass();
             //creates an instance of the ingredientClass so that methods from it can be used in other classes
             ingredientClass recipeManager = new ingredientClass();
+
+            ingredientClass recipes = new ingredientClass();
 
             deleteRecipeClass deleteRecipe = new deleteRecipeClass();
 
@@ -45,19 +48,19 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                 {
                     //calls a method from the ingredient class
                     case 1:
-                        recipeOption.recipeChoice();
+                        recipeOption.RecipeChoice(recipeManager);
                         break;
                     case 2:
-                        recipeManager.ingredients();
+                        recipeManager.Ingredients();
                         break;
                     case 3:
-                        recipeManager.displayRecipe();
+                        recipeManager.DisplayRecipe();
                         break;
                     case 4:
-                        recipeManager.quantityScaling();
+                        recipeManager.QuantityScaling();
                         break;
                     case 5:
-                        deleteRecipe.deleteData();
+                        deleteRecipe.DeleteData(recipeManager);
                         break;
                     case 6:
                         Run = false;

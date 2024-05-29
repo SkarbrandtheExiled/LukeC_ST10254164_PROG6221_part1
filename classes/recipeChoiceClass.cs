@@ -10,40 +10,43 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
     internal class recipeChoiceClass
     {
         //this method is not functioning yet
-        public void recipeChoice()
+        public void RecipeChoice(ingredientClass recipeData)
         {
-            ingredientClass recipeDecision = new ingredientClass();
-            ingredientClass fetchNames = new ingredientClass();
-
-            Console.WriteLine("please choose which recipe you want to view:");
-            if (fetchNames.recipeNames.Count == 0) //error the recipe number is always 0!!
+            if (recipeData.recipeNames.Count == 0)
             {
                 Console.WriteLine("No recipes to display");
-            }
-            else
-            {
-                for (int i = 0; i < fetchNames.recipeNames.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1}. {fetchNames.recipeNames[i]}");
-                }
-                //must display a menu showing all the recipes that have already been made
+                return; // Exit the method if no recipes available
             }
 
-            Console.Write("Enter the number of the recipe to display: ");
+            // Display the recipe menu
+            Console.WriteLine("Please choose which recipe you want to view:");
+            for (int i = 0; i < recipeData.recipeNames.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {recipeData.recipeNames[i]}");
+            }
+
+            // Get user input for recipe choice
             int recipeIndex;
-            //change the code below to something that is easier to understand and works
-            if (int.TryParse(Console.ReadLine(), out recipeIndex) && recipeIndex >= 1 && recipeIndex <= fetchNames.recipeNames.Count)
+            while (true) // Loop until valid input is received
             {
-                string selectedRecipeName = fetchNames.recipeNames[recipeIndex - 1];
-                Console.WriteLine($"\nSelected Recipe: {selectedRecipeName}");
-                // Call the displayRecipe method from the ingredientClass to display the recipe details
-                recipeDecision.displayRecipe();
+                Console.Write("Enter the number of the recipe to display: ");
+                string userInput = Console.ReadLine();
+
+                if (int.TryParse(userInput, out recipeIndex) &&
+                    recipeIndex >= 1 && recipeIndex <= recipeData.recipeNames.Count)
+                {
+                    break; // Exit loop on valid input
+                }
+
+                Console.WriteLine("Invalid recipe selection. Please try again.");
             }
-            else
-            {
-                Console.WriteLine("Invalid recipe selection.");
-            }
+
+            // Display the selected recipe
+            string selectedRecipeName = recipeData.recipeNames[recipeIndex - 1];
+            Console.WriteLine($"\nSelected Recipe: {selectedRecipeName}");
+
+            recipeData.DisplayRecipe();
         }
-    }
+        }
 }
 //*************************************END OF FILE***********************************************//

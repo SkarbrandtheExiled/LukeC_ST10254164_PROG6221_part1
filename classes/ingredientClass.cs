@@ -6,12 +6,11 @@
 /// 
 
 
+using LukeC_ST10254164_PROG6221_part1.classes;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using static LukeC_ST10254164_PROG6221_part1.classes.DelegateClass;
 
 namespace LukeC_ST10254164_PROG6221_part2.classes
@@ -38,10 +37,13 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
         public double[] calorieCount;
 
         public string[] foodGroup;
+
         //---------------------------Ingrediants method----------------------------//
         //this method is responsible for handling all data relevant to the ingredients of the recipe
-        public void ingredients()
+        public void Ingredients()
         {
+            //add recipe name first
+            AddRecipe();
             //prompt asking for the number of ingredients in the recipe
             Console.WriteLine("Please enter the number of ingredients in the recipe: ");
             //must fix this to have error handling
@@ -116,12 +118,13 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                 steps.Add(Console.ReadLine());
             }
             //calls the displayRecipe method to show the full recipe
-            displayRecipe();
+            DisplayRecipe();
         }
         //----------------------------displayRecipe method----------------------------------//
         //this method must prompt the user for the ingredient's name, quantitiy, and unit of measurement
-        public void displayRecipe()
+        public void DisplayRecipe()
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\nFull recipe: ");
             Console.WriteLine("----------------------------");
             //checks if there is any data to display 
@@ -161,14 +164,16 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                 }
             }
             Console.WriteLine("---------------------------");
-            //a quite function that allows the user to see the application before they close it and lose all stored information
+            //a quit function that allows the user to see the application before they close it and lose all stored information
             Console.WriteLine("Press 'enter' to return to menu");
             Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         //------------------------quantityScaling method-------------------//
         //responsible for scaling the user input 
-        public void quantityScaling()
+        //consider moving this
+        public void QuantityScaling()
         {
             Console.WriteLine("please enter a value to indicate how much the recipe must be scaled: ");
             //user inputs a value (e.g 1,2, 5) and multiplies that number by the value given for ingredientQuantities
@@ -177,45 +182,22 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             for (int i = 0; i < ingredientQuantities.Length; i++)
             {
                 ingredientQuantities[i] *= scalingNum;
-                displayScaling();
             }
+            ScalingRecipe recipeScale = new ScalingRecipe(ingredientNames, ingredientQuantities, unitOfMeasurements, calorieCount, foodGroup, steps);
+            recipeScale.DisplayScaling();
         }
-
-
-        //---------------------displayScaling---------------------//
-        //displays the new values after scaling them
-        public void displayScaling()
-        {
-            Console.WriteLine("\nScaled Recipe:");
-            Console.WriteLine("-----------------------");
-            Console.WriteLine("\nIngredients: ");
-            for (int i = 0; i < ingredientNames.Length; i++)
-            {
-                //a prompt that displays a message containg the value for the new quantities
-                Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]} (calories: {calorieCount}\n food group: {foodGroup}");
-            }
-            Console.WriteLine("------------------------");
-            Console.WriteLine("\nSteps: ");
-            //loops through the steps list
-            for (int i = 0; i < steps.Count; i++)
-            {
-                //displays the steps in the order writen by the user
-                Console.WriteLine($"{i + 1}: {steps[i]}");
-            }
-            Console.WriteLine("---------------------------");
-        }
-
 
         //------------------addRecipe------------------------------//
         //responsible for displaying a prompt and showing the new added recipe names
-        public void addRecipe() //add recipe method does not add to the array!!NB
+        public void AddRecipe() //add recipe method does not add to the array!!NB
         {
             Console.WriteLine("please enter the name of the recipe: ");
             string recipeName = Console.ReadLine();
-            recipeNames.Add(recipeName); //prevents the code from running 
-            Console.WriteLine($"recipe {recipeNames} has been added");
+            recipeNames.Add(recipeName); 
+            Console.WriteLine($"recipe {recipeName} has been added");
         }
 
+        //-----------------delegateClass-----------------------//
         private static void DisplayExceededCalories(double totalCalories, double calorieLimit)
         {
             Console.WriteLine($"Number of calories ({totalCalories}) has exceeded the maximum limit of {calorieLimit} calories.");
@@ -226,12 +208,12 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             Console.WriteLine($"Total calories: {totalCalories}");
         }
 
-        public void totalCalories(CalorieDisplayDelegate displayCalorieHandler)
+        public void totalCalories(CalorieDisplayDelegate displayCalories)
         {
             double totalCalories = calorieCount.Sum();
             double calorieLimit = 300;
 
-            displayCalorieHandler(totalCalories, calorieLimit);
+            displayCalories(totalCalories, calorieLimit);
         }
     }
     }

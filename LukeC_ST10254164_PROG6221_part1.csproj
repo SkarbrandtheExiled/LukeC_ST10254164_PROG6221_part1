@@ -49,6 +49,7 @@
     <Compile Include="classes\ingredientClass.cs" />
     <Compile Include="classes\menuClass.cs" />
     <Compile Include="classes\recipeChoiceClass.cs" />
+    <Compile Include="classes\ScalingRecipe.cs" />
     <Compile Include="mainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
