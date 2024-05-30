@@ -10,12 +10,14 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
     //********************************************START OF FILE**********************************//
     internal class recipeChoiceClass
     {
-        //this method is not functioning yet
+        
         public void RecipeChoice(ingredientClass recipeData)
         {
             if (recipeData.recipeNames.Count == 0)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No recipes to display");
+                Console.ForegroundColor = ConsoleColor.White;
                 return; // Exit the method if no recipes available
             }
 
@@ -30,6 +32,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             int recipeIndex;
             while (true) // Loop until valid input is received
             {
+                Console.ForegroundColor= ConsoleColor.Yellow;
                 Console.Write("Enter the number of the recipe to display: ");
                 string userInput = Console.ReadLine();
 
@@ -40,6 +43,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                 }
 
                 Console.WriteLine("Invalid recipe selection. Please try again.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
             // Display the selected recipe

@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\DelegateClass.cs" />
     <Compile Include="classes\deleteRecipeClass.cs" />
     <Compile Include="classes\infoClass.cs" />
     <Compile Include="classes\ingredientClass.cs" />

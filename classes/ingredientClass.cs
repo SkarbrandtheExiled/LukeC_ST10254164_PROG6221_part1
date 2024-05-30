@@ -11,7 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using static LukeC_ST10254164_PROG6221_part1.classes.DelegateClass;
 
 namespace LukeC_ST10254164_PROG6221_part2.classes
 {
@@ -56,6 +55,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             calorieCount = new double[numIngredients];
             foodGroup = new string[numIngredients];
 
+
             for (int i = 0; i < numIngredients; i++)
             {
                 //prompt asks for the name of the ingredient and adds it to the 'ingredientNames' array
@@ -90,19 +90,13 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                     i--;
                 }
 
-                //------------START OF CHANGES---------------//
                 //responsible for asking for the calorie count of the ingredients
-                //shoud probably be a seperate method
                 Console.WriteLine($"please enter the number of calories for {ingredientNames[i]}: ");
                 calorieCount[i] = double.Parse(Console.ReadLine());
-                //-----------END OF CHNAGES---------------//
 
-                //------------START OF CHANGES------------//
                 Console.WriteLine($"please enter the food group for {ingredientNames[i]}: ");
                 foodGroup[i] = Console.ReadLine();
-
                 //responsibe for getting the food group
-                //----------END OF CHANGES---------------//
             }
 
             Console.WriteLine("Please enter the number of steps: ");
@@ -197,25 +191,39 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             Console.WriteLine($"recipe {recipeName} has been added");
         }
 
-        //-----------------delegateMethods-----------------------//
-        private static void DisplayExceededCalories(double totalCalories, double calorieLimit)
+        public void DisplayCalories(double totalCalories, double calorieLimit)
         {
-            Console.WriteLine($"Number of calories ({totalCalories}) has exceeded the maximum limit of {calorieLimit} calories.");
-
+            if (totalCalories > calorieLimit)
+            {
+                DisplayExceededCalories(totalCalories, calorieLimit);
+            }
+            else
+            {
+                DisplayTotalCalories(totalCalories, calorieLimit);
+            }
         }
 
-        private static void DisplayTotalCalories(double totalCalories, double calorieLimit)
+
+        //-----------------delegateMethods-----------------------//
+        public delegate void CalorieDisplayDelegate(double totalCalories, double calorieLimit);
+        public static void DisplayExceededCalories(double totalCalories, double calorieLimit)
+        {
+            Console.WriteLine($"Number of calories ({totalCalories}) has exceeded the maximum limit of {calorieLimit} calories.");
+        }
+
+        public static void DisplayTotalCalories(double totalCalories, double calorieLimit)
         {
             Console.WriteLine($"Total calories: {totalCalories}");
         }
-
         public void totalCalories(CalorieDisplayDelegate displayCalories)
         {
             double totalCalories = calorieCount.Sum();
+
             double calorieLimit = 300;
 
             displayCalories(totalCalories, calorieLimit);
         }
-    }
-    }
+      
+    } //end of delegate file
+}
 //*************************************END OF FILE***********************************************//
