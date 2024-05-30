@@ -143,7 +143,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                     // Check if ingredient name exists
                     if (ingredientNames[i] != null)
                     {
-                        Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]} (number of calories: {calorieCount}/n food group: {foodGroup})");
+                        Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]} (number of calories: {calorieCount[i]} food group: {foodGroup[i]})");
                     }
                 }
             }
@@ -179,7 +179,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             //user inputs a value (e.g 1,2, 5) and multiplies that number by the value given for ingredientQuantities
             double scalingNum = double.Parse(Console.ReadLine());
 
-            for (int i = 0; i < ingredientQuantities.Length; i++)
+            for (int i = 0; i < ingredientQuantities.Length; i++) //exception handle
             {
                 ingredientQuantities[i] *= scalingNum;
             }

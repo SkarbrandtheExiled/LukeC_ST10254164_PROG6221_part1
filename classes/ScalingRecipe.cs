@@ -39,7 +39,7 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
             for (int i = 0; i < ingredientNames.Length; i++)
             {
                 //a prompt that displays a message containg the value for the new quantities
-                Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]} (calories: {calorieCount}, food group: {foodGroup}");
+                Console.WriteLine($"{ingredientQuantities[i]} {unitOfMeasurements[i]} of {ingredientNames[i]} (calories: {calorieCount[i]}, food group: {foodGroup[i]}");
             }
             Console.WriteLine("------------------------");
             Console.WriteLine("\nSteps: ");
