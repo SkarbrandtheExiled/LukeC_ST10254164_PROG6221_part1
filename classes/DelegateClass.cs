@@ -9,12 +9,12 @@ namespace LukeC_ST10254164_PROG6221_part1.classes
     {
 
         public delegate void CalorieDisplayDelegate(double totalCalories, double calorieLimit);
-        public void totalCalories(CalorieDisplayDelegate displayCalorieHandler)
+        public void totalCalories(CalorieDisplayDelegate displayCalories)
         {
             double totalCalories = calorieCount.Sum();
             double calorieLimit = 300;
 
-            displayCalorieHandler(totalCalories, calorieLimit);
+            displayCalories(totalCalories, calorieLimit);
         }
     }
 }

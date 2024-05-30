@@ -25,7 +25,7 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
                 {
                     case 1:
                         //sets all the variables that use user input to null
-                       recipeData.ingredientNames = null;
+                        recipeData.ingredientNames = null;
                         recipeData.ingredientQuantities = null;
                        recipeData.unitOfMeasurements = null;
                         recipeData.steps = null;

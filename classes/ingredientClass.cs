@@ -197,10 +197,11 @@ namespace LukeC_ST10254164_PROG6221_part2.classes
             Console.WriteLine($"recipe {recipeName} has been added");
         }
 
-        //-----------------delegateClass-----------------------//
+        //-----------------delegateMethods-----------------------//
         private static void DisplayExceededCalories(double totalCalories, double calorieLimit)
         {
             Console.WriteLine($"Number of calories ({totalCalories}) has exceeded the maximum limit of {calorieLimit} calories.");
+
         }
 
         private static void DisplayTotalCalories(double totalCalories, double calorieLimit)
