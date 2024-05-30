@@ -1,4 +1,4 @@
-# LukeC_ST10254164_PROG6221_part1
+# LukeC_ST10254164_PROG6221_part2
 To run the application simply select the zip file and right click there will be an option to "extract all".
 once extracted open the file containing "part 1" in it
 After openening the file select the option that is classified as a "visual studio solution" type
