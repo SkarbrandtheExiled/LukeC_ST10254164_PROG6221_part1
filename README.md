@@ -9,4 +9,4 @@ Added colour when displaying recipe outputs like, when the full recipe must be d
 Addressed some of the exception handling errors but not all, made sure that for most events the user will be asked to re-enter their data if they provide the wrong data type
 And changed to .NET 4.8 even though it was already in 4.8
 
-https://github.com/SkarbrandtheExiled/LukeC_ST10254164_PROG6221_part1.git
+[https://github.com/SkarbrandtheExiled/LukeC_ST10254164_PROG6221_part1.git](https://github.com/SkarbrandtheExiled/LukeC_ST10254164_PROG6221_part1.git)
